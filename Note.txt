@@ -74,4 +74,9 @@ PS C:\react\quick-ticket> npx @sentry/wizard@latest -i nextjs --saas --org annie
 Copy .env.sentry-build-plugin into .env
 Rename .env.sentry-build-plugin to .env.sentry-build-plugin.backup
 
+Go to http://localhost:3000/sentry-example-page -> Click the 'Throw Sample Error button' -> Wait until you see 'Error sent to Sentry' msg display
+-> Go to https://annie-huang.sentry.io/issues/?project=4510610458411008 -> left hand side choose Issues -> Make sure All Projects has included quick-ticket project
+-> You will see 2 errors: SentryExampleFrontendError and SentryExampleAPIError. SentryExampleFrontendError has a 'Session Replay' section to allow you to replay the video fo what happened.
+   SentryExampleAPIError got a 'Trace Preview' section to allow you to see performance.
 
+------------------------------
