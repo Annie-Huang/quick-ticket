@@ -4,6 +4,8 @@ NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
 https://github.com/bradtraversy/quick-ticket
 https://github.com/Annie-Huang/quick-ticket
 
+https://sentry.io/welcome/      << Sentry login from google account
+
 ----------------------------------------------------------------------------------------
 
 PS C:\react> npx create-next-app@latest quick-ticket
@@ -15,3 +17,61 @@ PS C:\react> npx create-next-app@latest quick-ticket
 
 
 PS C:\react\quick-ticket> npm i prisma @prisma/client react-icons
+
+
+------------------------------
+
+
+Sentry side:
+Login > Explore -> All Projects -> + Project -> NEXT.JS -> Set your alert frequency (choose 'I'll create my own alerts later)
+-> Project slug: quick-ticket -> Team: keep as #annie-huang -> click Create Project
+
+PS C:\react\quick-ticket> npx @sentry/wizard@latest -i nextjs --saas --org annie-huang --project quick-ticket
+◆  Do you want to continue anyway?
+│  ● Yes / ○ No         << Choose Yes
+└
+◆  Do you want to route Sentry requests in the browser through your Next.js server to avoid ad blockers?
+│  ● Yes (Can increase your server load and hosting bill)
+│  ○ No
+└
+◆  Do you want to enable Tracing to track the performance of your application?
+│  ● Yes (recommended)
+│  ○ No
+└
+◆  Do you want to enable Session Replay to get a video-like reproduction of errors during a user session?
+│  ● Yes (recommended, but increases bundle size)
+│  ○ No
+└
+◆  Do you want to enable Logs to send your application logs to Sentry?
+│  ● Yes (recommended)
+│  ○ No
+└
+◆  Do you want to create an example page ("/sentry-example-page") to test your Sentry setup?
+│  ● Yes (Recommended - Check your git status before committing!)
+│  ○ No
+└
+◆  Are you using a CI/CD tool to build and deploy your application?
+│  ● Yes (I use a tool like GitHub Actions, GitLab, CircleCI, TravisCI, Jenkins, Vercel, ...)
+│  ○ No
+└
+◆  Did you configure CI as shown above?
+│  ● Yes, continue!
+│  ○ I'll do it later...
+└
+◆  Optionally add a project-scoped MCP server configuration for the Sentry MCP?
+│  ● Yes
+│  ○ No
+│  ○ What is MCP?
+└
+◆  Which editor do you want to configure?
+│  ● Cursor (project .cursor/mcp.json)
+│  ○ VS Code (project .vscode/mcp.json)
+│  ○ Claude Code (project .mcp.json)
+│  ○ JetBrains IDE (WebStorm, IntelliJ IDEA, PyCharm, etc.)
+│  ○ I use a different IDE
+└
+
+Copy .env.sentry-build-plugin into .env
+Rename .env.sentry-build-plugin to .env.sentry-build-plugin.backup
+
+

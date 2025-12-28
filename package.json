@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.19.1",
+    "@sentry/nextjs": "^10.32.1",
     "next": "16.1.1",
     "prisma": "^6.19.1",
     "react": "19.2.3",
