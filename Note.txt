@@ -113,3 +113,6 @@ The refresh the page (https://console.neon.tech/app/projects/raspy-frog-43125333
 and you will see the Ticket table (NOTE01 - neon table.jpg)
 
 PS C:\react\quick-ticket> npx prisma generate
+✔ Generated Prisma Client (6.19.1) to .\app\generated\prisma in 53ms
+
+
