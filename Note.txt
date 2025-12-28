@@ -11,6 +11,7 @@ https://neon.com/       << Sign up with google account
 https://www.prisma.io/docs/orm/prisma-client/setup-and-configuration
 https://www.prisma.io/docs/getting-started/prisma-orm/quickstart/prisma-postgres
 
+https://console.neon.tech/app/projects/raspy-frog-43125333/branches/br-square-mountain-a7wbt58k/tables?database=neondb
 
 
 ----------------------------------------------------------------------------------------
@@ -103,7 +104,9 @@ PS C:\react\quick-ticket> npx neonctl@latest init
 └
 
 https://www.prisma.io/docs/getting-started/prisma-orm/quickstart/prisma-postgres
-PS C:\react\quick-ticket> npx prisma init
+(The blow instruction are in the doco in the above link)
 
+PS C:\react\quick-ticket> npx prisma init
+PS C:\react\quick-ticket> npx prisma migrate dev --name init
 
 
