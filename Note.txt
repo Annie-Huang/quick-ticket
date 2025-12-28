@@ -8,7 +8,7 @@ https://sentry.io/welcome/      << Sentry login from google account
 https://annie-huang.sentry.io/
 
 https://neon.com/       << Sign up with google account
-
+https://www.prisma.io/docs/getting-started/prisma-orm/quickstart/prisma-postgres
 
 ----------------------------------------------------------------------------------------
 
@@ -99,7 +99,8 @@ PS C:\react\quick-ticket> npx neonctl@latest init
 │  ◻ Claude CLI
 └
 
-
+https://www.prisma.io/docs/getting-started/prisma-orm/quickstart/prisma-postgres
+PS C:\react\quick-ticket> npx prisma init
 
 
 
