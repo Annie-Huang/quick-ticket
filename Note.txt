@@ -1,0 +1,16 @@
+NextJS + Postgres and Error Monitoring - Full Stack Support Ticketing System
+(https://www.youtube.com/watch?v=NKiTlo_dgb8)
+
+https://github.com/bradtraversy/quick-ticket
+https://github.com/Annie-Huang/quick-ticket
+
+----------------------------------------------------------------------------------------
+
+PS C:\react> npx create-next-app@latest quick-ticket
+
+? Would you like to use the recommended Next.js defaults? » - Use arrow-keys. Return to submit.
+>   Yes, use recommended defaults - TypeScript, ESLint, Tailwind CSS, App Router
+    No, reuse previous settings
+    No, customize settings
+
+
