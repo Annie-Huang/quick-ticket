@@ -14,3 +14,4 @@ PS C:\react> npx create-next-app@latest quick-ticket
     No, customize settings
 
 
+PS C:\react\quick-ticket> npm i prisma @prisma/client react-icons
