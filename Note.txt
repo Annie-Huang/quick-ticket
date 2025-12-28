@@ -109,4 +109,6 @@ https://www.prisma.io/docs/getting-started/prisma-orm/quickstart/prisma-postgres
 PS C:\react\quick-ticket> npx prisma init
 PS C:\react\quick-ticket> npx prisma migrate dev --name init
 
+The refresh the page (https://console.neon.tech/app/projects/raspy-frog-43125333/branches/br-square-mountain-a7wbt58k/tables?database=neondb)
+and you will see the Ticket table (NOTE01 - neon table.jpg)
 
