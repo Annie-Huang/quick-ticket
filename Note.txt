@@ -115,4 +115,5 @@ and you will see the Ticket table (NOTE01 - neon table.jpg)
 PS C:\react\quick-ticket> npx prisma generate
 ✔ Generated Prisma Client (6.19.1) to .\app\generated\prisma in 53ms
 
-
+PS C:\react\quick-ticket> npx prisma studio
+http://localhost:5555/      << Will show you what record you have added into your DB table.
