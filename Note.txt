@@ -5,6 +5,10 @@ https://github.com/bradtraversy/quick-ticket
 https://github.com/Annie-Huang/quick-ticket
 
 https://sentry.io/welcome/      << Sentry login from google account
+https://annie-huang.sentry.io/
+
+https://neon.com/       << Sign up with google account
+
 
 ----------------------------------------------------------------------------------------
 
@@ -80,3 +84,22 @@ Go to http://localhost:3000/sentry-example-page -> Click the 'Throw Sample Error
    SentryExampleAPIError got a 'Trace Preview' section to allow you to see performance.
 
 ------------------------------
+
+Neon side:
+Project name: quick-ticket -> Postgres version: 17 -> Could service provider: AWS -> Region: AWS Asica Pacific 2 (Sydney)
+-> Once created, click the Connect button -> click Show password in modal. -> Copy the whole string into .env file
+
+Run the init command in your app's root directory to connect your app to Neon.
+npx neonctl@latest init
+
+PS C:\react\quick-ticket> npx neonctl@latest init
+◆  Which editor(s) would you like to configure? (Space to toggle each option, Enter to confirm your selection)
+│  ◼ Cursor
+│  ◼ VS Code
+│  ◻ Claude CLI
+└
+
+
+
+
+
