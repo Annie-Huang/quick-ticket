@@ -117,3 +117,10 @@ PS C:\react\quick-ticket> npx prisma generate
 
 PS C:\react\quick-ticket> npx prisma studio
 http://localhost:5555/      << Will show you what record you have added into your DB table.
+
+
+
+------------------------------
+
+http://localhost:3000/
+http://localhost:3000/tickets/new   << click Submit a Ticket button
