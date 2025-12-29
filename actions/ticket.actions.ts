@@ -32,6 +32,14 @@ export async function createTicket(
       data: { subject, description, priority },
     });
 
+    Sentry.addBreadcrumb({
+      category: 'ticket',
+      message: `Ticket created: ${ticket.id}`,
+      level: 'info',
+    });
+
+    Sentry.captureMessage(`Ticket was created successfully: ${ticket.id}`);
+
     return { success: true, message: 'Ticket created successfully' };
   } catch (error) {
     Sentry.captureException(error as Error, {
