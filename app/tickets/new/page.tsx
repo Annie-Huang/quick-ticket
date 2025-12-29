@@ -16,6 +16,10 @@ const NewTicketPage = () => {
           Submit a Support Ticket
         </h1>
 
+        {state.message && !state.success && (
+          <p className='text-red-500 mb-4 text-center'>{state.message}</p>
+        )}
+
         {/*<form action={createTicket} className='space-y-4 text-gray-700'>*/}
         <form action={formAction} className='space-y-4 text-gray-700'>
           <input
