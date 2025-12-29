@@ -1,5 +1,7 @@
 'use server';
 import * as Sentry from '@sentry/nextjs';
+import { prisma } from '@/db/prisma';
+import { revalidatePath } from 'next/cache';
 
 // export async function createTicket(formData: FormData) {
 export async function createTicket(
@@ -15,7 +17,7 @@ export async function createTicket(
     const priority = formData.get('priority') as string;
 
     // The log is show in terminal for the server, not in the devtool console.
-    console.log(subject, description, priority);
+    // console.log(subject, description, priority);
 
     if (!subject || !description || !priority) {
       Sentry.captureMessage(
@@ -24,6 +26,11 @@ export async function createTicket(
       );
       return { success: false, message: 'All fields are required' };
     }
+
+    // Create ticket
+    const ticket = await prisma.ticket.create({
+      data: { subject, description, priority },
+    });
 
     return { success: true, message: 'Ticket created successfully' };
   } catch (error) {
