@@ -1,6 +1,10 @@
 'use server';
 
-export async function createTicket(formData: FormData) {
+// export async function createTicket(formData: FormData) {
+export async function createTicket(
+  prevState: { success: boolean; message: string }, // Need to create prevState otherwise useActionState(createTicket will get error.
+  formData: FormData,
+) {
   const subject = formData.get('subject') as string;
   const description = formData.get('description') as string;
   const priority = formData.get('priority') as string;
