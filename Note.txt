@@ -134,5 +134,9 @@ http://localhost:5555/      << Will show you what record you have added into you
 
 ------------------------------
 
+
+PS C:\react\quick-ticket> npm i sonner
+
+
 http://localhost:3000/
 http://localhost:3000/tickets/new   << click Submit a Ticket button
