@@ -24,6 +24,10 @@ export async function createTicket(
 
     return { success: true, message: 'Ticket created successfully' };
   } catch (error) {
+    Sentry.captureException(error as Error, {
+      extra: { formData: Object.fromEntries(formData.entries()) },
+    });
+
     return {
       success: false,
       message: 'An error occurred while creating ticket',
