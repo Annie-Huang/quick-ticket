@@ -1,7 +1,14 @@
-import React from 'react';
+'use client';
+
+import { useActionState } from 'react';
 import { createTicket } from '@/actions/ticket.actions';
 
 const NewTicketPage = () => {
+  const [state, formAction] = useActionState(createTicket, {
+    success: false,
+    message: '',
+  });
+
   return (
     <div className='min-h-screen bg-blue-50 flex items-center justify-center px-4'>
       <div className='w-full max-w-md bg-white shadow-md rounded-lg p-8 border border-gray-200'>
