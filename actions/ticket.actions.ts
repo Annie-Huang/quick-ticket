@@ -40,6 +40,8 @@ export async function createTicket(
 
     Sentry.captureMessage(`Ticket was created successfully: ${ticket.id}`);
 
+    revalidatePath('/tickets');
+
     return { success: true, message: 'Ticket created successfully' };
   } catch (error) {
     Sentry.captureException(error as Error, {
