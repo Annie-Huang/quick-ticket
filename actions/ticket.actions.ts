@@ -1,4 +1,5 @@
 'use server';
+import * as Sentry from '@sentry/nextjs';
 
 // export async function createTicket(formData: FormData) {
 export async function createTicket(
@@ -11,6 +12,11 @@ export async function createTicket(
 
   // The log is show in terminal for the server, not in the devtool console.
   console.log(subject, description, priority);
+
+  if (!subject || !description || !priority) {
+    Sentry.captureMessage('Validation Error: Missing ticket fields');
+    return { success: false, message: 'All fields are required' };
+  }
 
   return { success: true, message: 'Ticket created successfully' };
 }
