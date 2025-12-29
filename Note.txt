@@ -6,7 +6,18 @@ https://github.com/Annie-Huang/quick-ticket
 
 https://sentry.io/welcome/      << Sentry login from google account
 https://annie-huang.sentry.io/
-https://annie-huang.sentry.io/issues/?statsPeriod=14d       << dashboard for the quick-ticket system
+
+
+
+Verify Sentry issue log in sentry dashboard:
+https://annie-huang.sentry.io/issues/?statsPeriod=14d       << dashboard for the quick-ticket system, for bot success creation or error logging
+
+Verify database record added in
+Prisma Studio: http://localhost:5555/ (after running "npx prisma studio" command)
+or
+Neon Console table: https://console.neon.tech/app/projects/raspy-frog-43125333/branches/br-square-mountain-a7wbt58k/tables
+
+
 
 https://neon.com/       << Sign up with google account
 https://www.prisma.io/docs/orm/prisma-client/setup-and-configuration
