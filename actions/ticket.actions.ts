@@ -7,6 +7,9 @@ export async function createTicket(
   formData: FormData,
 ): Promise<{ success: boolean; message: string }> {
   try {
+    // The error is in the Additional Data field under the sentry issue
+    throw new Error('Simulated Prisma error for testing');
+
     const subject = formData.get('subject') as string;
     const description = formData.get('description') as string;
     const priority = formData.get('priority') as string;
