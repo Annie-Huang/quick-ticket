@@ -2,6 +2,7 @@
 import * as Sentry from '@sentry/nextjs';
 import { prisma } from '@/db/prisma';
 import { revalidatePath } from 'next/cache';
+import { logEvent } from '@/utils/sentry';
 
 // export async function createTicket(formData: FormData) {
 export async function createTicket(
@@ -20,8 +21,14 @@ export async function createTicket(
     // console.log(subject, description, priority);
 
     if (!subject || !description || !priority) {
-      Sentry.captureMessage(
+      // Sentry.captureMessage(
+      //   'Validation Error: Missing ticket fields',
+      //   'warning',
+      // );
+      logEvent(
         'Validation Error: Missing ticket fields',
+        'ticket',
+        { subject, description, priority },
         'warning',
       );
       return { success: false, message: 'All fields are required' };
