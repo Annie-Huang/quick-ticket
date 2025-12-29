@@ -7,7 +7,7 @@
 
 // Get the PrismaClient from the generated file rather than create it every time.
 // import { PrismaClient } from '@/generated/prisma';
-import { PrismaClient } from '../app/generated/prisma';
+import { PrismaClient } from '../app/generated/prisma/client';
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
