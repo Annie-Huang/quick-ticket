@@ -6,6 +6,7 @@ https://github.com/Annie-Huang/quick-ticket
 
 https://sentry.io/welcome/      << Sentry login from google account
 https://annie-huang.sentry.io/
+https://annie-huang.sentry.io/issues/?statsPeriod=14d       << dashboard for the quick-ticket system
 
 https://neon.com/       << Sign up with google account
 https://www.prisma.io/docs/orm/prisma-client/setup-and-configuration
