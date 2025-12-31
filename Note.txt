@@ -153,6 +153,8 @@ Reinstall dependencies: npm install
 
 ------------------------------
 
+Clear all records in Ticket table in Prisma Studio after we make the link between Ticket and User in schema.prisma
+(clicked select all the Delete button will appear)
 
 
 
