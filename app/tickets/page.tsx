@@ -2,6 +2,17 @@ import React from 'react';
 import { getTickets } from '@/actions/ticket.actions';
 import Link from 'next/link';
 
+const getPriorityClass = (priority: string) => {
+  switch (priority) {
+    case 'High':
+      return 'text-red-600 font-bold';
+    case 'Medium':
+      return 'text-yellow-600 font-bold';
+    case 'Low':
+      return 'text-green-600 font-bold';
+  }
+};
+
 const TicketsPage = async () => {
   const tickets = await getTickets();
   // console.log(tickets);
