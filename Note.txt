@@ -133,6 +133,27 @@ http://localhost:5555/      << Will show you what record you have added into you
 
 
 ------------------------------
+Troubleshoot if you get into this error when starting the server:
+
+Error [TurbopackInternalError]: failed to create junction point to ../../../node_modules/import-in-the-middle
+
+Caused by:
+- The file exists. (os error 80)
+    at ignore-listed frames {
+  location: undefined
+}
+
+
+Solution:
+Delete existing module folders and lock files:
+rm -rf node_modules package-lock.json (for npm)
+Also delete the .next folder: rm -rf .next
+Clear the npm cache: npm cache clean --force
+Reinstall dependencies: npm install
+
+------------------------------
+
+
 
 
 PS C:\react\quick-ticket> npm i sonner
