@@ -158,9 +158,9 @@ Clear all records in Ticket table in Prisma Studio after we make the link betwee
 Stop the Prisma Studio and Stop the server
 
 PS C:\react\quick-ticket> npx prisma migrate dev --name add-user-model      << add-user-model is just the name we give for this action.
+    Check in neon after you ran the above to confirm two tables are there.
 
-
-
+PS C:\react\quick-ticket> npx prisma generate
 
 
 
