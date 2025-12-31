@@ -153,6 +153,10 @@ Reinstall dependencies: npm install
 
 ------------------------------
 
+PS C:\react\quick-ticket> npm i sonner
+
+------------------------------
+
 Clear all records in Ticket table in Prisma Studio after we make the link between Ticket and User in schema.prisma
 (clicked select all the Delete button will appear)
 Stop the Prisma Studio and Stop the server
@@ -163,9 +167,12 @@ PS C:\react\quick-ticket> npx prisma migrate dev --name add-user-model      << a
 PS C:\react\quick-ticket> npx prisma generate
 
 
+PS C:\react\quick-ticket> npm i bcryptjs jose cookie        << jose is for json web token
 
 
-PS C:\react\quick-ticket> npm i sonner
+
+
+
 
 
 http://localhost:3000/
