@@ -88,5 +88,11 @@ export async function getTickets() {
       { count: tickets.length },
       'info',
     );
-  } catch (e) {}
+
+    return tickets;
+  } catch (error) {
+    logEvent('Error fetching tickets', 'ticket', {}, 'error', error);
+
+    return [];
+  }
 }
