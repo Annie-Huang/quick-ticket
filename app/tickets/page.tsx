@@ -42,7 +42,10 @@ const TicketsPage = async () => {
               {/* Right Side */}
               <div className='text-right space-y-2'>
                 <div className='text-sm text-gray-500'>
-                  Priority: <span>{ticket.priority}</span>
+                  Priority:{' '}
+                  <span className={getPriorityClass(ticket.priority)}>
+                    {ticket.priority}
+                  </span>
                 </div>
                 <Link
                   href={`/tickets/${ticket.id}`}
