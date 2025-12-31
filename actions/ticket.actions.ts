@@ -96,3 +96,11 @@ export async function getTickets() {
     return [];
   }
 }
+
+export async function getTicketsById(id: string) {
+  try {
+    const ticket = await prisma.ticket.findUnique({
+      where: { id: Number(id) },
+    });
+  } catch (error) {}
+}
