@@ -25,6 +25,7 @@ https://www.prisma.io/docs/getting-started/prisma-orm/quickstart/prisma-postgres
 
 https://console.neon.tech/app/projects/raspy-frog-43125333/branches/br-square-mountain-a7wbt58k/tables?database=neondb
 
+https://www.jwt.io/
 
 ----------------------------------------------------------------------------------------
 
@@ -169,6 +170,8 @@ PS C:\react\quick-ticket> npx prisma generate
 
 PS C:\react\quick-ticket> npm i bcryptjs jose cookie        << jose is for json web token
 
+Annie@DESKTOP-BH46C1T MINGW64 /c/react/quick-ticket (main)  << run in gitbash window
+$ openssl rand -base64 32                                   << create a random string for us, which we use it for AUTH_SECRET value in .env file
 
 
 
