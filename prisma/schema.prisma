@@ -22,6 +22,8 @@ model User {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  // Very nice that adding the last two lines in the Tcket model, save, and the below line will auto added.
+  Ticket    Ticket[]
 }
 
 model Ticket {
@@ -32,4 +34,7 @@ model Ticket {
   status      String   @default("Open")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  // How to link the other table...
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
 }
