@@ -162,3 +162,4 @@ PS C:\react\quick-ticket> npm i sonner
 http://localhost:3000/
 http://localhost:3000/tickets/new   << click Submit a Ticket button
 http://localhost:3000/tickets
+http://localhost:3000/tickets/5
