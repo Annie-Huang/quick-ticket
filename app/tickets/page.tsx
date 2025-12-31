@@ -1,9 +1,10 @@
 import React from 'react';
 import { getTickets } from '@/actions/ticket.actions';
+import Link from 'next/link';
 
 const TicketsPage = async () => {
   const tickets = await getTickets();
-  console.log(tickets);
+  // console.log(tickets);
 
   return (
     <div className='min-h-screen bg-blue-50 p-8'>
@@ -21,8 +22,21 @@ const TicketsPage = async () => {
               className='flex justify-between items-center bg-white rounded-lg shadow border border-gray-200 p-6'
             >
               {/* Left Side */}
+              <div>
+                <h2 className='text-xl font-semibold text-blue-600'>
+                  {ticket.subject}
+                </h2>
+              </div>
 
               {/* Right Side */}
+              <div className='text-right space-y-2'>
+                <div className='text-sm text-gray-500'>
+                  Priority: <span>{ticket.priority}</span>
+                </div>
+                <Link href={`/tickets/${ticket.id}`} className=''>
+                  View Ticket
+                </Link>
+              </div>
             </div>
           ))}
         </div>
