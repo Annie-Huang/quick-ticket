@@ -28,5 +28,14 @@ export async function verifyAuthToken<T>(token: string): Promise<T> {
     const { payload } = await jwtVerify(token, secret);
 
     return payload as T;
-  } catch (error) {}
+  } catch (error) {
+    logEvent(
+      'Token decryption failed',
+      'auth',
+      { tokenSnippet: token.slice(0, 10) },
+      'error',
+      error,
+    );
+    throw new Error('Token decryption failed');
+  }
 }
