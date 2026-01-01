@@ -19,6 +19,8 @@ const RegisterPage = () => {
       toast.success('Registration successfully!');
       router.push('/tickets');
       router.refresh(); // not sure why this need refresh while the ticket-form.tsx does not need refresh??
+    } else if (state.message) {
+      toast.error(state.message);
     }
   }, [state, router]);
 
