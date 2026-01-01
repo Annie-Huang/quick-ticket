@@ -100,5 +100,12 @@ export async function logoutUser(): Promise<{
     logEvent('User logged out successfully', 'auth', {}, 'info');
 
     return { success: true, message: 'Logout Successful' };
-  } catch (error) {}
+  } catch (error) {
+    logEvent('Unexpected error during logout', 'auth', {}, 'error', error);
+
+    return {
+      success: false,
+      message: 'Logout failed, please try again',
+    };
+  }
 }
