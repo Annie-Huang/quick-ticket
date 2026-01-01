@@ -3,6 +3,7 @@
 import { prisma } from '@/db/prisma';
 import bcrypt from 'bcryptjs';
 import { logEvent } from '@/utils/sentry';
+import { setAuthCookie, signAuthToken } from '@/lib/auth';
 
 type ResponseResult = {
   success: boolean;
@@ -57,5 +58,9 @@ export async function registerUser(
         password: hashedPassword,
       },
     });
+
+    // Sign and set auth token
+    const token = await signAuthToken({ userId: user.id });
+    await setAuthCookie(token);
   } catch (error) {}
 }
