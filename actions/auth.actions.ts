@@ -12,7 +12,7 @@ type ResponseResult = {
 
 // Register new user
 export async function registerUser(
-  prevState,
+  prevState: ResponseResult,
   formData: FormData,
 ): Promise<ResponseResult> {
   try {
@@ -22,7 +22,7 @@ export async function registerUser(
 
     if (!name || !email || !password) {
       logEvent(
-        'Validator error: Missing register fields',
+        'Validation error: Missing register fields',
         'auth',
         { name, email },
         'warning',
@@ -72,7 +72,8 @@ export async function registerUser(
       },
       'info',
     );
-    return { success: true, message: 'Registration successful' };
+
+    return { success: true, message: 'Registration' };
   } catch (error) {
     logEvent(
       'unexpected error during registration',
