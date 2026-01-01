@@ -1,4 +1,5 @@
 import { SignJWT } from 'jose';
+import { logEvent } from '@/utils/sentry';
 
 const secret = new TextEncoder().encode(process.env.AUTH_SECRET_KEY);
 const cookieName = 'auth-token';
@@ -14,5 +15,8 @@ export async function signAuthToken(payload: any) {
       .sign(secret);
 
     return token;
-  } catch (e) {}
+  } catch (error) {
+    logEvent('Token signing failed', 'auth', { payload }, 'error', error);
+    throw new Error('Token signing failed');
+  }
 }
