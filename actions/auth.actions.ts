@@ -62,5 +62,16 @@ export async function registerUser(
     // Sign and set auth token
     const token = await signAuthToken({ userId: user.id });
     await setAuthCookie(token);
+
+    logEvent(
+      `User registered successfully: ${email}`,
+      'auth',
+      {
+        userId: user.id,
+        email,
+      },
+      'info',
+    );
+    return { success: true, message: 'Registration successful' };
   } catch (error) {}
 }
