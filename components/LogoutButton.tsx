@@ -1,8 +1,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { logoutUser } from '@/actions/auth.actions';
+import { toast } from 'sonner';
 
 const LogoutButton = () => {
   const router = useRouter();
@@ -12,6 +13,15 @@ const LogoutButton = () => {
   };
 
   const [state, formAction] = useActionState(logoutUser, initialState);
+
+  useEffect(() => {
+    if (state.success) {
+      toast.success('Logout successful');
+      router.push('/login'); // will not route unless the /login/page.tsx is there.
+    } else if (state.message) {
+      toast.error(state.message);
+    }
+  }, [state, router]);
 
   return (
     <form action={formAction}>
