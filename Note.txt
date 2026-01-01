@@ -184,3 +184,4 @@ http://localhost:3000/tickets
 http://localhost:3000/tickets/5     << not found page.
 http://localhost:3000/tickets/1     << found
 http://localhost:3000/register
+http://localhost:3000/login
