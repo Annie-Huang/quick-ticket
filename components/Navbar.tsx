@@ -13,38 +13,43 @@ const Navbar = async () => {
         </Link>
       </div>
       <div className='flex items-center space-x-4'>
-        {user ? <></> : <></>}
-
-        <Link
-          href='/tickets/new'
-          className='hover:underline text-gray-700 transition'
-        >
-          New Ticket
-        </Link>
-        <Link
-          href='/tickets'
-          className='hover:underline text-gray-700 transition'
-        >
-          My Tickets
-        </Link>
-        <Link
-          href='/login'
-          className='text-blue-600 hover:underline transition'
-        >
-          Login
-        </Link>
-        <Link
-          href='/register'
-          className='bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition'
-        >
-          Register
-        </Link>
-        <button
-          type='submit'
-          className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition'
-        >
-          Logout
-        </button>
+        {user ? (
+          <>
+            <Link
+              href='/tickets/new'
+              className='hover:underline text-gray-700 transition'
+            >
+              New Ticket
+            </Link>
+            <Link
+              href='/tickets'
+              className='hover:underline text-gray-700 transition'
+            >
+              My Tickets
+            </Link>
+            <button
+              type='submit'
+              className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition'
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link
+              href='/login'
+              className='text-blue-600 hover:underline transition'
+            >
+              Login
+            </Link>
+            <Link
+              href='/register'
+              className='bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition'
+            >
+              Register
+            </Link>
+          </>
+        )}
       </div>
     </nav>
   );
