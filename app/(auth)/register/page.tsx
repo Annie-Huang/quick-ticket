@@ -1,15 +1,26 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { registerUser } from '@/actions/auth.actions';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 const RegisterPage = () => {
+  const router = useRouter();
   const initialState = {
     success: false,
     message: '',
   };
 
   const [state, formAction] = useActionState(registerUser, initialState);
+
+  useEffect(() => {
+    if (state.success) {
+      toast.success('Registration successfully!');
+      router.push('/tickets');
+      router.refresh(); // not sure why this need refresh while the ticket-form.tsx does not need refresh??
+    }
+  }, [state, router]);
 
   // return <>Register</>;
   return (
