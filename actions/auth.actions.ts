@@ -29,5 +29,21 @@ export async function registerUser(
 
       return { success: false, message: 'All fields are required' };
     }
+
+    // Check if user exists
+    const existingUser = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (existingUser) {
+      logEvent(
+        `Registration failed: User already exists - ${email}`,
+        'auth',
+        { email },
+        'warning',
+      );
+
+      return { success: false, message: 'User already exists' };
+    }
   } catch (error) {}
 }
