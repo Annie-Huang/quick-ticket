@@ -13,5 +13,7 @@ export async function getCurrentUser() {
     // in auth.action.ts' registerUser, method, we have:
     // const token = await signAuthToken({ userId: user.id });
     const payload = (await verifyAuthToken(token)) as AuthPayload;
+
+    if (!payload?.userId) return null;
   } catch (error) {}
 }
