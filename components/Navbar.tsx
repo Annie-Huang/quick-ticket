@@ -1,7 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { getCurrentUser } from '@/lib/current-user';
+import LogoutButton from '@/components/LogoutButton';
 
+// Don't want to make Navbar a client component so abstract the logout button into its own component.
 const Navbar = async () => {
   const user = await getCurrentUser();
 
@@ -27,14 +29,7 @@ const Navbar = async () => {
             >
               My Tickets
             </Link>
-            <form>
-              <button
-                type='submit'
-                className='bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition'
-              >
-                Logout
-              </button>
-            </form>
+            <LogoutButton />
           </>
         ) : (
           <>
