@@ -45,5 +45,17 @@ export async function registerUser(
 
       return { success: false, message: 'User already exists' };
     }
+
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create user
+    const user = await prisma.user.create({
+      data: {
+        name,
+        email,
+        password: hashedPassword,
+      },
+    });
   } catch (error) {}
 }
