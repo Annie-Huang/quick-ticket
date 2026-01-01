@@ -1,4 +1,5 @@
 import { getAuthCookie, verifyAuthToken } from '@/lib/auth';
+import { prisma } from '@/db/prisma';
 
 type AuthPayload = {
   userId: string;
@@ -15,5 +16,17 @@ export async function getCurrentUser() {
     const payload = (await verifyAuthToken(token)) as AuthPayload;
 
     if (!payload?.userId) return null;
+
+    const user = await prisma.user.findUnique({
+      where: { id: payload.userId },
+      select: {
+        // use take the below 3 fields, ignore other fields like password, createdAt, updatedAt
+        id: true,
+        email: true,
+        name: true,
+      },
+    });
+
+    return user;
   } catch (error) {}
 }
