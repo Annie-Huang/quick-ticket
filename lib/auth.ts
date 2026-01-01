@@ -52,5 +52,7 @@ export async function setAuthCookie(token: string) {
       path: '/',
       maxAge: 60 * 60 * 24 * 7, // 7 Days
     });
-  } catch (error) {}
+  } catch (error) {
+    logEvent('Failed to set cookie', 'auth', { token }, 'error', error);
+  }
 }
