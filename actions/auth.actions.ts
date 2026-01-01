@@ -73,5 +73,17 @@ export async function registerUser(
       'info',
     );
     return { success: true, message: 'Registration successful' };
-  } catch (error) {}
+  } catch (error) {
+    logEvent(
+      'unexpected error during registration',
+      'auth',
+      {},
+      'error',
+      error,
+    );
+    return {
+      success: false,
+      message: 'Something went wrong, please try again',
+    };
+  }
 }
