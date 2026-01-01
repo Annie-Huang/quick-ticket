@@ -1,5 +1,6 @@
 import { jwtVerify, SignJWT } from 'jose';
 import { logEvent } from '@/utils/sentry';
+import { cookies } from 'next/headers';
 
 const secret = new TextEncoder().encode(process.env.AUTH_SECRET_KEY);
 const cookieName = 'auth-token';
@@ -38,4 +39,18 @@ export async function verifyAuthToken<T>(token: string): Promise<T> {
     );
     throw new Error('Token decryption failed');
   }
+}
+
+// Set the auth cookie
+export async function setAuthCookie(token: string) {
+  try {
+    const cookieStore = await cookies();
+    cookieStore.set(cookieName, token, {
+      httpOnly: true, // this stop javascript from accessing the token, make it more secure.
+      sameSite: 'lax', // only top level get request if it is from other sites, not post request from other sites
+      secure: process.env.NODE_ENV === 'production', // if it's production, it can only use https.
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7, // 7 Days
+    });
+  } catch (error) {}
 }
