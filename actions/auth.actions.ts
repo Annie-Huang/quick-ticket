@@ -14,16 +14,20 @@ export async function registerUser(
   prevState,
   formData: FormData,
 ): Promise<ResponseResult> {
-  const name = formData.get('name') as string;
-  const email = formData.get('email') as string;
-  const password = formData.get('password') as string;
+  try {
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
 
-  if (!name || !email || !password) {
-    logEvent(
-      'Validator error: Missing register fields',
-      'auth',
-      { name, email },
-      'warning',
-    );
-  }
+    if (!name || !email || !password) {
+      logEvent(
+        'Validator error: Missing register fields',
+        'auth',
+        { name, email },
+        'warning',
+      );
+
+      return { success: false, message: 'All fields are required' };
+    }
+  } catch (error) {}
 }
