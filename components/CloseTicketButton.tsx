@@ -27,6 +27,7 @@ const CloseTicketButton = ({
   }, [state]);
 
   // Don't show the CloseTicketButton if the ticket is closed.
+  // This will effective never get into because the way it's called in app/tickets/[id]/page.tsx. Is it defensive coding?
   if (isClosed) return null;
 
   // I personally think it's a bit stupid to create a <form> just so that we can use the useActionState hook
