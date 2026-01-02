@@ -23,6 +23,7 @@ const LogoutButton = () => {
     }
   }, [state, router]);*/
 
+  // Don't do the redirect in here, just route to tickets page and let the tickets page to check if user is login, if not, go to login page.
   useEffect(() => {
     if (state.success) {
       toast.success('Logout successful');

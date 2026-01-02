@@ -2,8 +2,17 @@ import React from 'react';
 import { getTickets } from '@/actions/ticket.actions';
 import Link from 'next/link';
 import { getPriorityClass } from '@/utils/ui';
+import { getCurrentUser } from '@/lib/current-user';
+import { redirect } from 'next/navigation';
 
 const TicketsPage = async () => {
+  const user = await getCurrentUser();
+
+  // Can to to this route from 'View Tickets' button or after successfully created a ticket
+  if (!user) {
+    redirect('/login');
+  }
+
   const tickets = await getTickets();
   // console.log(tickets);
 
