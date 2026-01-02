@@ -109,3 +109,24 @@ export async function logoutUser(): Promise<{
     };
   }
 }
+
+// Log user in
+export async function loginUser(
+  prevState: ResponseResult,
+  formData: FormData,
+): Promise<ResponseResult> {
+  try {
+    const email = formData.get('email') as string;
+    const password = formData.get('password') as string;
+
+    if (!email || !password) {
+      logEvent(
+        'Validation error: Missing register fields',
+        'auth',
+        { email },
+        'warning',
+      );
+      return { success: false, message: 'Email and password are required' };
+    }
+  } catch (error) {}
+}
