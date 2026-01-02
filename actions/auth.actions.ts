@@ -162,5 +162,12 @@ export async function loginUser(
     await setAuthCookie(token);
 
     return { success: true, message: 'Login Successful' };
-  } catch (error) {}
+  } catch (error) {
+    logEvent('Unexpected error during login', 'auth', {}, 'error', error);
+
+    return {
+      success: false,
+      message: 'Error during log in',
+    };
+  }
 }
