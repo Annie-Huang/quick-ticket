@@ -1,7 +1,7 @@
 'use client';
 
 import { useActionState, useEffect } from 'react';
-import { registerUser } from '@/actions/auth.actions';
+import { loginUser } from '@/actions/auth.actions';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
@@ -12,11 +12,11 @@ const LoginForm = () => {
     message: '',
   };
 
-  const [state, formAction] = useActionState(registerUser, initialState);
+  const [state, formAction] = useActionState(loginUser, initialState);
 
   useEffect(() => {
     if (state.success) {
-      toast.success('Registration successfully!');
+      toast.success('Login successfully!');
       router.push('/tickets');
       router.refresh(); // not sure why this need refresh while the ticket-form.tsx does not need refresh??
     } else if (state.message) {
@@ -29,7 +29,7 @@ const LoginForm = () => {
     <div className='min-h-screen flex items-center justify-center bg-blue-50 px-4'>
       <div className='w-full max-w-md bg-white shadow-md rounded-lg p-8 border border-gray-200'>
         <h1 className='text-3xl font-bold mb-6 text-center text-blue-600'>
-          Register
+          Login
         </h1>
 
         <form action={formAction} className='space-y-4 text-gray-700'>
@@ -61,7 +61,7 @@ const LoginForm = () => {
             className='w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700 transition disabled:opacity-50'
             type='submit'
           >
-            Register
+            Login
           </button>
         </form>
       </div>
