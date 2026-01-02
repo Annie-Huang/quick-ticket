@@ -48,7 +48,15 @@ export async function createTicket(
 
     // Create ticket
     const ticket = await prisma.ticket.create({
-      data: { subject, description, priority },
+      // data: { subject, description, priority },
+      data: {
+        subject,
+        description,
+        priority,
+        user: {
+          connect: { id: user.id },
+        },
+      },
     });
 
     // Sentry.addBreadcrumb({
