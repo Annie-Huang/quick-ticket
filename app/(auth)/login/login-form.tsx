@@ -35,14 +35,6 @@ const LoginForm = () => {
         <form action={formAction} className='space-y-4 text-gray-700'>
           <input
             className='w-full border border-gray-200 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400'
-            type='text'
-            name='name'
-            placeholder='Your Name'
-            autoComplete='name'
-            required
-          />
-          <input
-            className='w-full border border-gray-200 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400'
             type='email'
             name='email'
             placeholder='Your Email'
