@@ -106,7 +106,12 @@ export async function getTickets() {
       return [];
     }
 
+    // const tickets = await prisma.ticket.findMany({
+    //   orderBy: { createdAt: 'desc' },
+    // });
+    // Only get tickets that belong to the current login user.
     const tickets = await prisma.ticket.findMany({
+      where: { userId: user.id },
       orderBy: { createdAt: 'desc' },
     });
 
