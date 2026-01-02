@@ -167,4 +167,10 @@ export async function closeTicket(
   if (!ticketId) {
     return { success: false, message: 'Ticket ID is Required' };
   }
+
+  const user = await getCurrentUser();
+
+  if (!user) {
+    return { success: false, message: 'Unauthorized' };
+  }
 }
