@@ -157,5 +157,10 @@ export async function loginUser(
       // It is a security thing, you should let user know the email exist but the password is wrong.
       return { success: false, message: 'Invalid email or password' };
     }
+
+    const token = await signAuthToken({ userId: user.id });
+    await setAuthCookie(token);
+
+    return { success: true, message: 'Login Successful' };
   } catch (error) {}
 }
