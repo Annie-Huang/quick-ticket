@@ -1,5 +1,6 @@
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import { closeTicket } from '@/actions/ticket.actions';
+import { toast } from 'sonner';
 
 const CloseTicketButton = ({
   ticketId,
@@ -14,6 +15,14 @@ const CloseTicketButton = ({
   };
 
   const [state, formAction] = useActionState(closeTicket, initialState);
+
+  useEffect(() => {
+    if (state.success) {
+      toast.success(state.message);
+    } else if (state.message && !state.success) {
+      toast.error(state.message);
+    }
+  }, [state]);
 
   // Don't show the CloseTicketButton if the ticket is closed.
   if (isClosed) return null;
