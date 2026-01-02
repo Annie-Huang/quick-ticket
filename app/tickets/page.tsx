@@ -1,7 +1,4 @@
-import React from 'react';
 import { getTickets } from '@/actions/ticket.actions';
-import Link from 'next/link';
-import { getPriorityClass } from '@/utils/ui';
 import { getCurrentUser } from '@/lib/current-user';
 import { redirect } from 'next/navigation';
 import TicketItem from '@/components/TicketItem';
