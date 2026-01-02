@@ -165,12 +165,14 @@ export async function closeTicket(
   const ticketId = Number(formData.get('ticketId'));
 
   if (!ticketId) {
+    logEvent('Missing ticket ID', 'ticket', {}, 'warning');
     return { success: false, message: 'Ticket ID is Required' };
   }
 
   const user = await getCurrentUser();
 
   if (!user) {
+    logEvent('Missing user ID', 'ticket', {}, 'warning');
     return { success: false, message: 'Unauthorized' };
   }
 }
