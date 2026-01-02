@@ -6,7 +6,7 @@ import { logoutUser } from '@/actions/auth.actions';
 import { toast } from 'sonner';
 
 const LogoutButton = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const initialState = {
     success: false,
     message: '',
@@ -14,14 +14,22 @@ const LogoutButton = () => {
 
   const [state, formAction] = useActionState(logoutUser, initialState);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     if (state.success) {
       toast.success('Logout successful');
       router.push('/login'); // will not route unless the /login/page.tsx is there.
     } else if (state.message) {
       toast.error(state.message);
     }
-  }, [state, router]);
+  }, [state, router]);*/
+
+  useEffect(() => {
+    if (state.success) {
+      toast.success('Logout successful');
+    } else if (state.message) {
+      toast.error(state.message);
+    }
+  }, [state]);
 
   return (
     <form action={formAction}>
