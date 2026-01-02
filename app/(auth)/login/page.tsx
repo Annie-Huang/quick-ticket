@@ -1,7 +1,7 @@
-import React from 'react';
+import LoginForm from '@/app/(auth)/login/login-form';
 
 const LoginPage = () => {
-  return <>login</>;
+  return <LoginForm />;
 };
 
 export default LoginPage;
