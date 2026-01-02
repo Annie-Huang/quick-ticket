@@ -153,3 +153,12 @@ export async function getTicketById(id: string) {
     return null;
   }
 }
+
+// Close Ticket
+export async function closeTicket(
+  prevState: {
+    success: boolean;
+    message: string;
+  },
+  formData: FormData,
+): Promise<{ success: boolean; message: string }> {}
