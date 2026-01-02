@@ -34,7 +34,7 @@ const TicketItem = ({ ticket }: TicketItemProps) => {
         <Link
           href={`/tickets/${ticket.id}`}
           // className='inline-block mt-2 bg-blue-600 text-white hover:bg-blue-700 text-sm px-3 py-1 transition text-center'
-          className={`inline-block mt-2 text-white text-sm px-3 py-1 transition text-center ${isClosed ? 'bg-gray-400 text-gray-700' : 'bg-blue-600 hover:bg-blue-700'}`}
+          className={`inline-block mt-2 text-white text-sm px-3 py-1 transition text-center ${isClosed ? 'bg-gray-400 text-gray-700 cursor-not-allowed pointer-events-none' : 'bg-blue-600 hover:bg-blue-700'}`}
         >
           View Ticket
         </Link>
