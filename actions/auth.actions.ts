@@ -143,5 +143,19 @@ export async function loginUser(
 
       return { success: false, message: 'Invalid email or password' };
     }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      logEvent(
+        'Login Failed: Incorrect password',
+        'auth',
+        { email },
+        'warning',
+      );
+
+      // It is a security thing, you should let user know the email exist but the password is wrong.
+      return { success: false, message: 'Invalid email or password' };
+    }
   } catch (error) {}
 }
