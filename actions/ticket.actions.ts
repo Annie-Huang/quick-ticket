@@ -161,4 +161,10 @@ export async function closeTicket(
     message: string;
   },
   formData: FormData,
-): Promise<{ success: boolean; message: string }> {}
+): Promise<{ success: boolean; message: string }> {
+  const ticketId = Number(formData.get('ticketId'));
+
+  if (!ticketId) {
+    return { success: false, message: 'Ticket ID is Required' };
+  }
+}
