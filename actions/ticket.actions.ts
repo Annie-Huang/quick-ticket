@@ -3,6 +3,7 @@ import * as Sentry from '@sentry/nextjs';
 import { prisma } from '@/db/prisma';
 import { revalidatePath } from 'next/cache';
 import { logEvent } from '@/utils/sentry';
+import { getCurrentUser } from '@/lib/current-user';
 
 // export async function createTicket(formData: FormData) {
 export async function createTicket(
@@ -10,6 +11,17 @@ export async function createTicket(
   formData: FormData,
 ): Promise<{ success: boolean; message: string }> {
   try {
+    const user = await getCurrentUser();
+
+    if (!user) {
+      logEvent('Unauthorized ticket creation attempt', 'ticket', {}, 'warning');
+
+      return {
+        success: false,
+        message: 'You must be logged in to create a ticket.',
+      };
+    }
+
     // The error is in the Additional Data field under the sentry issue
     // throw new Error('Simulated Prisma error for testing');
 
