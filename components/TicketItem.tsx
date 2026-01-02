@@ -8,10 +8,13 @@ type TicketItemProps = {
 };
 
 const TicketItem = ({ ticket }: TicketItemProps) => {
+  const isClosed = ticket.status === 'Closed';
+
   return (
     <div
       key={ticket.id}
-      className='flex justify-between items-center bg-white rounded-lg shadow border border-gray-200 p-6'
+      // className='flex justify-between items-center bg-white rounded-lg shadow border border-gray-200 p-6'
+      className={`flex justify-between items-center bg-white rounded-lg shadow border border-gray-200 p-6 ${isClosed ? 'opacity-50' : ''}`}
     >
       {/* Left Side */}
       <div>
