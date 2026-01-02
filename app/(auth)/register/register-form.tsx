@@ -5,7 +5,7 @@ import { registerUser } from '@/actions/auth.actions';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
-const RegisterPage = () => {
+const RegisterForm = () => {
   const router = useRouter();
   const initialState = {
     success: false,
@@ -69,4 +69,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default RegisterForm;
