@@ -128,5 +128,20 @@ export async function loginUser(
       );
       return { success: false, message: 'Email and password are required' };
     }
+
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (!user || !user.password) {
+      logEvent(
+        `Login Failed: User not found - ${email}`,
+        'auth',
+        { email },
+        'warning',
+      );
+
+      return { success: false, message: 'Invalid email or password' };
+    }
   } catch (error) {}
 }
