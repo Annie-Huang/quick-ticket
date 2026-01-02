@@ -16,6 +16,8 @@ const CloseTicketButton = ({
   const [state, formAction] = useActionState(closeTicket, initialState);
 
   return <div></div>;
+  // Don't show the CloseTicketButton if the ticket is closed.
+  if (isClosed) return null;
 };
 
 export default CloseTicketButton;
